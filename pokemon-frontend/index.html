@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="pokeApp">
+
+<head>
+    <!-- META -->
+    <meta charset="UTF-8">
+    <meta name="description" content="Pokeapi">
+    <meta name="keywords" content="HTML,CSS,JavaScript,Angular">
+    <meta name="author" content="Leandro de Campos Cardoso">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/font-awesome.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- JS -->
+    <script src="./js/angular.min.js"></script>
+    <script src="./js/angular-route.min.js"></script>
+    <script src="./js/controller.js"></script>
+</head>
+
+<body ng-controller="mainController">
+    <!-- HEADER / NAVBAR -->
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">Pokeapi - Monte seu time</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#!home"><i class="fa fa-home"></i> Principal</a></li>
+                    <li><a href="#!profile"><i class="fa fa-user-circle"></i> Perfil</a></li>
+                    <li><a href="#!manage"><i class="fa fa-users"></i> Gerenciar Time</a></li>
+                    <li><a href="#!register"><i class="fa fa-user-plus"></i> Registrar</a></li>
+                    <li><a href="#!login" ng-show="user.logged==false" ng-hide="user.logged==true"><i class="fa fa-sign-in"></i> Autenticar</a></li>
+                    <li><a ng-click="logout()" href="#!login" ng-show="user.logged==true" ng-hide="user.logged==false"><i class="fa fa-sign-out"></i>{{user.nome}}(Sair)</a></li>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div id="main">
+        <!-- INJECTED VIEW -->
+        <ng-view></ng-view>
+        <footer class="footer navbar-fixed-bottom">
+            <p class="text-muted">Pokemon API - Leandro de Campos</p>
+        </footer>
+</body>
+
+</html>

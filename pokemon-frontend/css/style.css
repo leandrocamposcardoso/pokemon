@@ -1,0 +1,30 @@
+.navbar {
+    margin-bottom: 0;
+}
+
+.content {
+    margin-bottom: 0;
+    height: 100%;
+}
+
+body {
+    background-color: #f6f6f6;
+}
+
+.jumbotron {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pokemon-div {
+    overflow-y: scroll;
+    height: 300px;
+}
+
+.selected {
+    background-color: #C1DAD6;
+}
+
+th {
+    text-align: center;
+}

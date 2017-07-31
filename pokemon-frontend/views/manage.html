@@ -1,0 +1,58 @@
+<div class="container-fluid text-center">
+    <h1>Bem vindo!</h1>
+    <p>Monte a sua equipe.</p>
+    <div class="row">
+        <div class="col-sm-5" style="margin-left:20px;margin-right:20px">
+            <div class="jumbotron">
+                {{loading}}
+                <h3>Escolha os pokemons</h3>
+                <p>Filtro nome:<input ng-model="f.pokemon_species.name"></p>
+                <div class="pokemon-div" />
+                <table class="table">
+                    <th>Selecionados {{checkedcount}}/6</th>
+                    <th>Nome</th>
+                    <tr ng-class="{selected:pokemon.selected}" ng-repeat="pokemon in pokemons | filter:f">
+                        <td><input type="checkbox" ng-model="pokemon.selected" ng-change="checkChanged(pokemon)" ng-disabled="checkedcount==6 && !pokemon.selected"></td>
+                        <td>{{pokemon.pokemon_species.name}}</td>
+                    </tr>
+                </table>
+            </div>
+            <button ng-click="addPokemon(pokemons)" class="btn btn-primary btn-block" ng-disabled="checkedcount<1">Adicionar</button>
+        </div>
+    </div>
+    <div class="col-sm-5" style="margin-left:20px;margin-right:20px">
+        <div class="jumbotron">
+            {{loading2}}
+            <h3>Time de pokemons</h3>
+            <table class="table">
+                <th>Selecionado</th>
+                <th>Nome</th>
+                <th>Tipo</th>
+                <th>Grupo</th>
+                <th>Habilidades</th>
+                <tr ng-class="{selected:pokemond.selected}" ng-repeat="pokemond in pokemonDetail">
+                    <td><input type="radio" name="pokemonradio" ng-click="selectPokemon(pokemond)" /></td>
+                    <td>{{pokemond.name}}</td>
+                    <td>{{pokemond.type}}</td>
+                    <td>{{pokemond.group}}</td>
+                    <td>{{pokemond.moves}}</td>
+                </tr>
+            </table>
+            <h3>Habilidades do {{pokemonSelected}}</h3>
+            <p>Filtro nome:<input ng-model="f.name"></p>
+            <div class="pokemon-div" />
+            <table class="table">
+                <th>Selecionados {{checkedcountMove}}/4</th>
+                <th>Nome</th>
+                <tr ng-class="{selected:move.selected}" ng-repeat="move in moves | orderBy | filter:f">
+                    <td>
+                        <input type="checkbox" ng-model="move.selected" ng-click="checkChangedMove(move);addMoves(moves);" ng-disabled="(checkedcountMove==4 && !move.selected)||pokemonSelected=='-'">
+                    </td>
+                    <td>{{move.name}}</td>
+                </tr>
+            </table>
+        </div>
+        <button ng-click="updateMove(pokemonSelected)" class="btn btn-primary btn-block ">Atualizar habilidades do {{pokemonSelected}}</button>
+        <button ng-click="savePokemon()" class="btn btn-primary btn-block ">Salvar lista</button>
+    </div>
+</div>

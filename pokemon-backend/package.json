@@ -1,0 +1,33 @@
+{
+  "name": "pokemon-backend",
+  "version": "1.0.0",
+  "description": "Pokemon Api BackEnd",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "compression": "^1.7.0",
+    "cors": "^2.8.4",
+    "express": "^4.15.3",
+    "mongoose": "^4.11.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node server.js 8000",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leandrocamposcardoso/pokemonapi.git"
+  },
+  "keywords": [
+    "pokemon",
+    "api",
+    "pokeapi"
+  ],
+  "author": "Leandro de Campos Cardoso",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leandrocamposcardoso/pokemonapi/issues"
+  },
+  "homepage": "https://github.com/leandrocamposcardoso/pokemonapi#readme"
+}
