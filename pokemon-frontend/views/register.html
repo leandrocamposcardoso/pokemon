@@ -1,21 +1,23 @@
 <div class="form-container text-center" style="width:50%;text-align:center;margin: auto;">
-    <form class="form-signin" name="SingIn">
-        <h3 class="form-signin-heading">Registrar</h3>
-        <span style="color:red">{{status}}</span>
+    <div class="login-card">
+        <form class="form-signin" name="SingIn">
+            <h3 class="form-signin-heading">Registrar</h3>
+            <span style="color:red">{{status}}</span>
 
-        <input type="text" id="inputName" class="form-control" placeholder="Nome" ng-required="true" ng-model="user.name" name="name" style="margin-top:5px;" />
-        <input type="text" id="inputUsuario" class="form-control" placeholder="Usuario" ng-required="true" ng-model="user.user" name="user" style="margin-top:5px;" />
-        <input type="password" id="inputPassword" class="form-control" placeholder="Senha" ng-required="true" ng-model="user.password" name="password" style="margin-top:5px;" />
-        <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="register(user)" ng-disabled="SingIn.$invalid" style="margin-top:10px;">Registrar</button>
+            <input type="text" id="inputName" class="form-control" placeholder="Nome" ng-required="true" ng-model="user.name" name="name" style="margin-top:5px;" />
+            <input type="text" id="inputUsuario" class="form-control" placeholder="Usuario" ng-required="true" ng-model="user.user" name="user" style="margin-top:5px;" />
+            <input type="password" id="inputPassword" class="form-control" placeholder="Senha" ng-required="true" ng-model="user.password" name="password" style="margin-top:5px;" />
+            <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="register(user)" ng-disabled="SingIn.$invalid" style="margin-top:10px;">Registrar</button>
 
-        <div ng-show="SingIn.name.$invalid && SingIn.name.$dirty" class="alert alert-danger" style="margin-top:10px;">
-            Preencha o campo nome
-        </div>
-        <div ng-show="SingIn.user.$invalid && SingIn.user.$dirty" class="alert alert-danger" style="margin-top:10px;">
-            Preencha o campo usuario
-        </div>
-        <div ng-show="SingIn.password.$invalid && SingIn.password.$dirty" class="alert alert-danger" style="margin-top:10px;">
-            Preencha o campo senha
-        </div>
-    </form>
+            <div ng-show="SingIn.name.$invalid && SingIn.name.$dirty" class="alert alert-danger" style="margin-top:10px;">
+                Preencha o campo nome
+            </div>
+            <div ng-show="SingIn.user.$invalid && SingIn.user.$dirty" class="alert alert-danger" style="margin-top:10px;">
+                Preencha o campo usuario
+            </div>
+            <div ng-show="SingIn.password.$invalid && SingIn.password.$dirty" class="alert alert-danger" style="margin-top:10px;">
+                Preencha o campo senha
+            </div>
+        </form>
+    </div>
 </div>
