@@ -2,6 +2,7 @@ var Pokemons = require('../models/pokemons');
 
 exports.post = function(req, res) {
     var pokemons = new Pokemons();
+    pokemons.id = req.body.id;
     pokemons.treinador = req.body.treinador;
     pokemons.nome = req.body.nome;
     pokemons.tipo = req.body.tipo;
@@ -32,6 +33,7 @@ exports.putPokemon = function(req, res) {
     Pokemons.findById(req.params.treinador, function(error, pokemons) {
         if (error)
             res.json({ 'error': 'Nao foi possivel atualizar o usuario' });
+        pokemons.id = req.body.id;
         pokemons.treinador = req.body.treinador;
         pokemons.nome = req.body.nome;
         pokemons.tipo = req.body.tipo;

@@ -2,6 +2,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var PokemonSchema = new Schema({
+    id: {
+        type: String,
+        required: true
+    },
     treinador: {
         type: String,
         required: true

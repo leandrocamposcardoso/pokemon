@@ -1,22 +1,23 @@
 <div class="profile text-center">
-    <h1>Perfil</h1>
+    <h1>Mestre {{user.nome}}</h1>
     <br />
-    <p>Bem vindo,{{user.nome}}!</p>
-    <div class="jumbotron">
+    <div class="container text-center">
         <h3>Seu time de pokemons!</h3>
-        <table class="table">
+        <table class="table table-striped">
             <th>Sprite</th>
+            <th>ID</th>
             <th>Nome</th>
             <th>Tipo</th>
             <th>Grupo</th>
             <th>Habilidades</th>
             <tr ng-class="{selected:pokemond.selected}" ng-repeat="pokemond in pokemonList">
-                <td><img ng-src="{{images[$index]}}" width="50px" height="50px;" /></td>
+                <td><img ng-src="{{'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'+pokemond.id+'.png'}}" width="50px" height="50px;" /></td>
+                <td>{{pokemond.id}}</td>
                 <td>{{pokemond.nome}}</td>
                 <td>{{pokemond.tipo}}</td>
                 <td>{{pokemond.grupo}}</td>
                 <td>
-                    <span class="label label-default" style="margin-left:5px;" ng-repeat="habilidade in pokemond.habilidades">{{habilidade}}</div>
+                    <span class="label label-success" style="margin-left:5px;" ng-repeat="habilidade in pokemond.habilidades">{{habilidade}}</span>
                 </td>
             </tr>
         </table>

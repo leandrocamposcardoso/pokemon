@@ -21,6 +21,11 @@ body {
     height: 300px;
 }
 
+.habilidade-div {
+    overflow-y: scroll;
+    height: 200px;
+}
+
 .selected {
     background-color: #C1DAD6;
 }

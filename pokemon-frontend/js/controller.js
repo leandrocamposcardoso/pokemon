@@ -3,7 +3,7 @@
  // Init
 
  .run(function($rootScope, $location) {
-         $rootScope.BackendURL = "http://127.0.0.1:8001";  //Alterar para o ip e porta do backend
+         $rootScope.BackendURL = "http://127.0.0.1:8001"; //Alterar para o ip e porta do backend
          $rootScope.user = {
              nome: "",
              login: "",
@@ -224,6 +224,7 @@
                  }
              }).then(function(success) {
                  $scope.pokemonDetail.push({
+                     'id': success.data.id,
                      'name': success.data.name,
                      'type': success.data.genera[0].genus,
                      'group': success.data.egg_groups[0].name,
@@ -234,7 +235,7 @@
                  $scope.loading2 = "Falha ao receber o time!";
              });
 
-             $scope.loading2 = "Carregando habilidades";
+             $scope.loading2 = "Adicionando pokemons";
              $scope.pokemonMoves = [];
              $http({
                  method: 'GET',
@@ -271,7 +272,7 @@
          //Salva os novos
          $scope.loading2 = "Salvando time";
          $scope.pokemonDetail.forEach(function(pokemon) {
-             var data = { nome: pokemon.name, tipo: pokemon.type, grupo: pokemon.group, habilidades: pokemon.moves, treinador: $rootScope.user.nome };
+             var data = { id: pokemon.id, nome: pokemon.name, tipo: pokemon.type, grupo: pokemon.group, habilidades: pokemon.moves, treinador: $rootScope.user.nome };
              console.log(data);
              $http.post($rootScope.BackendURL + '/api/pokemons', JSON.stringify(data))
                  .then(function(response) {
@@ -308,26 +309,7 @@
      }).then(function(success) {
          $scope.pokemonList = success.data;
      });
-     //Pega imagens
-
-     setTimeout(function() {
-         $scope.pokemonList.forEach(function(data) {
-             $http({
-                 method: 'GET',
-                 url: 'http://pokeapi.co/api/v2/pokemon/' + data.nome,
-                 data: {
-                     applicationId: 3
-                 }
-             }).then(function(success) {
-                 $scope.images.push(success.data.sprites.front_default);
-             })
-         }, function(error) {
-             console.log(error);
-         });
-
-     }, 500);
-
-
-
-
+     $scope.resturnurl = function(index) {
+         return 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + index + '.png'
+     }
  });
